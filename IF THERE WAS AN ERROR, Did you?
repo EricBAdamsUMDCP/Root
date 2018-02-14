@@ -3,6 +3,9 @@ ARE you in the right directory?
 >cd
 
 Did you turn on Xming 11?
+>go into root (see login)
+>>b = new TBrowser()
+>>> doesn't say anything just pops up a browser showing that Xming is running
 
 >>>>>>DID YOU MOVE OVER THE CODE AFTER YOU MADE A CHANGE????!?!?!??!?
 
