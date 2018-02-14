@@ -1,3 +1,5 @@
+ *-->AFTER EDITING AND SAVING REMEBER TO TRANSFER THE CODE WITH WINSCP!!!
+ 
  FROM Pos_Plus_RPD_Centrality_Pbside_RPDcorr.C
  
  if (PHADsum<140000) {ETsum = (PHADsum + RPDsum + 0.2*PEMsum)*0.00115;}
@@ -35,3 +37,61 @@ It describes the equations that will be plotted.
 
 
 !*!WE ARE COMPARING RATIOS OF E.G. RPD 7 AND 6 TO CALIBRATE THEM SO THEY RESPOND WITH THE SAME SIGNAL INTENSITY FOR THEIR RESPECTIVE INTERATIVE.
+
+
+how to change graph
+
+(x,y)
+
+
+
+      PEMsum=(PEM3TotalSignal-PEM3TotalNoise);
+     
+      PHADsum = (PHAD1TotalSignal-PHAD1TotalNoise) + 1.78*(PHAD2TotalSignal-PHAD2TotalNoise) + 1.63*(PHAD3TotalSignal-PHAD3TotalNoise);
+	  
+	  //ETsum = (PHADsum + RPDsum + 0.2*PEMsum)*0.00115;
+	  
+	  if (PHADsum<140000) {ETsum = (PHADsum + RPDsum + 0.2*PEMsum)*0.00115;}
+	  
+	  
+      histogram_1D->Fill((RPD7TotalSignal-RPD7TotalNoise)/(RPD6TotalSignal-RPD6TotalNoise));
+      
+      histogram_2D->Fill(ETsum,(RPD7TotalSignal-RPD7TotalNoise)/(RPD6TotalSignal-RPD6TotalNoise)); // changed to ETsum with ratio!!
+      
+     MAKE SURE I DEFINE AXES CORRCTLY OR IT WONT LOOK GOOD, DOUBLE CHECK
+    
+  
+  TH1F* histogram_1D = new TH1F("RPD7/RPD6", "Ratio RPD7toRPD6 TS345 NS78 285832 Cent<200", 200, 0.1, 10);
+  
+  TH2F* histogram_2D = new TH2F("RPDs ", "RPD7 vs RPD6 285832 TS345 NS=78 Cent<200", 200, 0.1, 10, 200, 0.1, 5);
+  										//#bins x, minx, max x, #bins y, min y, max y
+  CHANGE TO....
+  
+  TH2F* histogram_2D = new TH2F("RPDs ", "RPD7 ratio RPD6 285832 TS345 NS=78 Cent<200", 200, 100, 20000, 200, 0.1, 5);
+  										
+  NOW CHANGE AXES (at bottom) (note units affect axis!!!) NOTE YOU CANNOT PUT A "/" IN THE CODE OR IT WONT DO ANYTHING.
+  
+ 
+  c2 = new TCanvas();
+  histogram_2D->SetXTitle("RPD6 (TeV)");
+  histogram_2D->SetYTitle("RPD7 (TeV)"); 
+  gStyle->SetPalette(1);
+  gStyle->SetOptLogz();
+  histogram_2D->Draw("colz");
+  
+  CHANGE TO...
+  
+  c1 = new TCanvas();
+  histogram_1D->SetXTitle("RPD7/RPD6");
+  histogram_1D->SetYTitle("counts");
+  c1->SetLogy();
+  gStyle->SetOptLogz();
+  gStyle->SetOptFit();
+  histogram_1D->Draw();
+ 
+  c2 = new TCanvas();
+  histogram_2D->SetXTitle("Esum");
+  histogram_2D->SetYTitle("RPD7 ratio RPD6 "); 
+  gStyle->SetPalette(1);
+  gStyle->SetOptLogz();
+  histogram_2D->Draw("colz");
