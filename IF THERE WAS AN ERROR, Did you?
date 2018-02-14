@@ -1,0 +1,31 @@
+ARE you in the right directory?
+> ls
+>cd
+
+Did you turn on Xming 11?
+
+Signal saturation
+>ADC= 127 is saturation becaause it is 8 bit. (ADC tells us about our saturation)
+>* ADC=127 is maximum possible signal measurement but signal in reality may be higher!!!
+>We use multiple time slots to deal with saturation as the thing gets saturated we switch to the next time slot and get the bleed off (its like a ccd).
+>Always Initialize variables otherwise it may not work!
+e.g.
+ Double_t         centrality[1];
+
+  Double_t 		   HADsum=0;
+  Double_t		   PEMsum=0;
+  Double_t		   RPDsum=0;
+  Double_t         ETsum = 0;
+  Double_t		   NEMsum = 0;
+  Double_t		   NHADsum = 0;
+  Double_t		   PHADsum = 0;
+ 
+ >Time slices that have no data in them are used for NOISE Subtraction e.g. 0-2
+
+>The commands used to set fc values to greater than zero are used after noise compensation/subtraction so no negative values
+are made by accident
+
+Histograms
+>0.00115 means its in TeV scale
+>   MAKE SURE I DEFINE AXES CORRCTLY OR IT WONT LOOK GOOD, DOUBLE CHECK
+
