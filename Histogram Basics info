@@ -43,7 +43,7 @@ how to change graph
 
 (x,y)
 
-
+--> STOP did you check the scales make sure you're using the right units if to big delete the 0.00115
 
       PEMsum=(PEM3TotalSignal-PEM3TotalNoise);
      
