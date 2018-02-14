@@ -20,3 +20,14 @@ ADC= 127 is saturation becaause it is 8 bit. (ADC tells us about our saturation)
 USE fc to get the signals out
 We use multiple time slots to deal with saturation as the thing gets saturated we switch to the next time slot and get the bleed off (its like a ccd).
 
+Always Initialize variables otherwise it may not work!
+e.g.
+ Double_t         centrality[1];
+
+  Double_t 		   HADsum=0;
+  Double_t		   PEMsum=0;
+  Double_t		   RPDsum=0;
+  Double_t         ETsum = 0;
+  Double_t		   NEMsum = 0;
+  Double_t		   NHADsum = 0;
+  Double_t		   PHADsum = 0;
