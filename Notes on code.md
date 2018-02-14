@@ -31,3 +31,7 @@ e.g.
   Double_t		   NEMsum = 0;
   Double_t		   NHADsum = 0;
   Double_t		   PHADsum = 0;
+
+Time slices that have no data in them are used for NOISE Subtraction e.g. 0-2
+
+The commands used to set fc values to greater than zero are used after noise compensation/subtraction so no negative values are made by accident
