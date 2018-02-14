@@ -1,0 +1,34 @@
+ FROM Pos_Plus_RPD_Centrality_Pbside_RPDcorr.C
+ 
+ if (PHADsum<140000) {ETsum = (PHADsum + RPDsum + 0.2*PEMsum)*0.00115;}
+	  
+	  
+      histogram_1D->Fill((RPD7TotalSignal-RPD7TotalNoise)/(RPD6TotalSignal-RPD6TotalNoise));
+      
+      histogram_2D->Fill((RPD6TotalSignal-RPD6TotalNoise)*0.00115,(RPD7TotalSignal-RPD7TotalNoise)*0.00115);
+      
+
+	  
+      }
+      
+    }
+  
+  c1 = new TCanvas();
+  histogram_1D->SetXTitle("RPD7/RPD6");
+  histogram_1D->SetYTitle("counts");
+  c1->SetLogy();
+  gStyle->SetOptLogz();
+  gStyle->SetOptFit();
+  histogram_1D->Draw();
+ 
+  c2 = new TCanvas();
+  histogram_2D->SetXTitle("RPD6 (TeV)");
+  histogram_2D->SetYTitle("RPD7 (TeV)"); 
+  gStyle->SetPalette(1);
+  gStyle->SetOptLogz();
+  histogram_2D->Draw("colz");
+ 
+ 
+ 
+---> this is the code to construct a type of a histrogram.
+It describes the equations that will be plotted.
