@@ -9,6 +9,8 @@ Did you turn on Xming 11?
 
 >>>>>>DID YOU MOVE OVER THE CODE AFTER YOU MADE A CHANGE????!?!?!??!?
 
+>>>> DID you quit (.q) root after running something BEFORE RUNNING ANYTHING ELSE (fi getting weird errors and stuff)?
+
 Signal saturation
 >ADC= 127 is saturation becaause it is 8 bit. (ADC tells us about our saturation)
 >* ADC=127 is maximum possible signal measurement but signal in reality may be higher!!!
